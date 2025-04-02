@@ -12,6 +12,8 @@ require ABSPATH . 'wp-admin/includes/theme-install.php';
 
 $tab = ! empty( $_REQUEST['tab'] ) ? sanitize_text_field( $_REQUEST['tab'] ) : '';
 
+$body_id = 'plugin-information'; // $tab;
+
 if ( ! current_user_can( 'install_themes' ) ) {
 	wp_die( __( 'Sorry, you are not allowed to install themes on this site.' ) );
 }
