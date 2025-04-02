@@ -5,6 +5,10 @@
  * @package WordPress
  * @subpackage Administration
  */
+// TODO: Route this page via a specific iframe handler instead of the do_action below.
+if ( ! defined( 'IFRAME_REQUEST' ) && isset( $_GET['tab'] ) && ( 'theme-information' === $_GET['tab'] ) ) {
+	define( 'IFRAME_REQUEST', true );
+}
 
 /** WordPress Administration Bootstrap */
 require_once __DIR__ . '/admin.php';
