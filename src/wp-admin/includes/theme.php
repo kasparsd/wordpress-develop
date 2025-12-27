@@ -212,14 +212,7 @@ function get_theme_update_available( $theme ) {
 	if ( isset( $themes_update->response[ $stylesheet ] ) ) {
 		$update      = $themes_update->response[ $stylesheet ];
 		$theme_name  = $theme->display( 'Name' );
-		$details_url = add_query_arg(
-			array(
-				'TB_iframe' => 'true',
-				'width'     => 1024,
-				'height'    => 800,
-			),
-			$update['url']
-		); // Theme browser inside WP? Replace this. Also, theme preview JS will override this on the available list.
+		$details_url = self_admin_url( 'theme-install.php?tab=theme-information&theme=' . urlencode( $stylesheet ) . '&section=changelog&TB_iframe=true&width=640&height=662' );
 		$update_url  = wp_nonce_url( admin_url( 'update.php?action=upgrade-theme&amp;theme=' . urlencode( $stylesheet ) ), 'upgrade-theme_' . $stylesheet );
 
 		if ( ! is_multisite() ) {
